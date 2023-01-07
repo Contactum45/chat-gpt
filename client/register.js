@@ -12,7 +12,7 @@ const handleSubmit = async (e) => {
 
     // to clear the textarea input 
 
-    const response = await fetch('http://localhost:5000/api/signup', {
+    const response = await fetch('https://virtualassistance.onrender.com/api/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
