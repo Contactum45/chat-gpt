@@ -7,7 +7,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         nested: resolve(__dirname, 'auth/register.html'),
-        nested: resolve(__dirname, 'auth/login.html'),
+      
       },
     },
   },
