@@ -2,7 +2,7 @@ import bot from './assets/bot.svg'
 import user from './assets/user.svg'
 
 window.alert(getCookie("token"))
-if(getCookie("token").length <= 0) {
+if(getCookie("token").length <= 0 || getCookie("token") == null) {
     window.location.href="/auth/login.html";
 }
 
