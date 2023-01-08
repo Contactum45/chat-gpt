@@ -1,6 +1,6 @@
 const form = document.querySelector('form')
 var token = document.cookie
-window.alert("token : "+token)
+
 if(token.length > 0) {
     window.location.href="/";
 }
