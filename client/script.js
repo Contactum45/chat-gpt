@@ -4,7 +4,7 @@ import user from './assets/user.svg'
 const jwttoken = document.cookie
 window.alert("TOken : "+jwttoken)
 
-if(jwttoken == null) {
+if(jwttoken == null || jwttoken == "") {
     window.location.href="/auth/login.html";
 }
 
