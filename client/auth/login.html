@@ -28,6 +28,15 @@
   
       <button type="submit" class="registerbtn">Login</button>
     </div>
+
+
+    <div class="loaderContainer" id="loginLoader">
+
+      <div class="loader">
+    
+      </div>
+    </div>
+
   
     <div class="container signin">
       <p>Don't have an account? <a onclick="showRegister()">Sign Up</a>.</p>
@@ -54,6 +63,13 @@
   
       <button type="submit" class="registerbtn">Register</button>
     </div>
+
+    <div class="loaderContainer" id="registerLoader">
+
+      <div class="loader">
+    
+      </div>
+    </div>
   
     <div class="container signin">
       <p>Already have an account? <a href="javascript:showLogin()">Sign in</a>.</p>
@@ -71,6 +87,22 @@ function showLogin() {
 document.getElementById("register_form").style.display = "none";
 }
 
+function showLoginLoader() {
+    document.getElementById("loginLoader").style.display = "flex";
+}
+
+function hideLoginLoader() {
+document.getElementById("loginLoader").style.display = "none";
+}
+
+function showRegisterLoader() {
+document.getElementById("registerLoader").style.display = "flex";
+}
+
+function hideRegisterLoader() {
+document.getElementById("registerLoader").style.display = "none";
+}
+
 
 const loginForm = document.getElementById('login_form')
 const registerForm = document.getElementById('register_form')
@@ -82,7 +114,8 @@ if(token.length > 0) {
 
 const handleLoginSubmit = async (e) => {
     e.preventDefault()
-    const data = new FormData(form)
+    const data = new FormData(loginForm)
+    showLoginLoader()
 
 // to clear the textarea input 
 
@@ -102,16 +135,20 @@ if (response.ok) {
     const data = await response.json();
     console.log("User data is : "+data.token);
     document.cookie = "jwttoken="+data.token+";path=/";
+    hideLoginLoader()
     window.location.href="/";
 } else {
     const data = await response.json();
     window.alert("Error occurs "+data.message)
-    form.reset()
+    hideLoginLoader()
+    loginForm.reset()
 }
 }
 
 const handleRegisterSubmit = async (e) => {
     e.preventDefault()
+
+    showRegisterLoader()
     
     const data = new FormData(registerForm)
 
@@ -132,11 +169,13 @@ const response = await fetch('https://virtualassistance.onrender.com/api/signup'
 if (response.ok) {
     const data = await response.json();
     document.cookie = "jwttoken="+data.token+";path=/";
+    hideRegisterLoader()
     window.location.href="/";
 } else {
     const data = await response.json();
     window.alert("Error occurs "+data.message)
-    form.reset()
+    hideRegisterLoader()
+    registerForm.reset()
 }
  
 }
@@ -161,7 +200,6 @@ registerForm.addEventListener('keyup', (e) => {
 
   </script>
 
-  <script type="module" src="loginCode.js"></script>
 </body>
 </html>
 
