@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
     if (response.ok) {
         const data = await response.json();
         console.log("User data is : "+data.token);
-        document.cookie = "jwttoken="+data.token;
+        document.cookie = "jwttoken="+data.token+";path=/";
         window.location.href="/";
     } else {
         const data = await response.json();
