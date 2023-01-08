@@ -11,7 +11,7 @@
     
 
 
-<form>
+<form id="login_form">
     <div class="container">
       <h1>Login</h1>
       <hr>
@@ -30,10 +30,47 @@
     </div>
   
     <div class="container signin">
-      <p>Don't have an account? <a href="./register.html">Sign Up</a>.</p>
+      <p>Don't have an account? <a href="#" onclick="showRegister()">Sign Up</a>.</p>
     </div>
   </form>
 
+  <form id="register_form">
+    <div class="container">
+      <h1>Register</h1>
+
+      <hr>
+  
+      <label for="email"><b>Username</b></label>
+      <input type="text" placeholder="Enter username" name="username" id="username" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+  
+
+      <hr>
+  
+      <button type="submit" class="registerbtn">Register</button>
+    </div>
+  
+    <div class="container signin">
+      <p>Already have an account? <a href="javascript:showLogin()">Sign in</a>.</p>
+    </div>
+  </form>
+
+  <script>
+    function showRegister() {
+    document.getElementById("login_form").style.display = "none";
+document.getElementById("register_form").style.display = "block";
+}
+
+function showLogin() {
+    document.getElementById("login_form").style.display = "block";
+document.getElementById("register_form").style.display = "none";
+}
+  </script>
 
   <script type="module" src="loginCode.js"></script>
 </body>
