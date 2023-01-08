@@ -4,11 +4,10 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   build: {
     rollupOptions: {
-      input: entryPoints(
-        "index.html",
-        "auth/register.html",
-        "auth/login.html",
-      ),
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        nested: resolve(__dirname, 'auth/'),
+      },
     },
   },
 })
