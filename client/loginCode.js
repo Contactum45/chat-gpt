@@ -1,7 +1,7 @@
 const form = document.querySelector('form')
 var token = document.cookie
 if(token.length > 0) {
-    window.location.href="/chat";
+    window.location.href="/chat.html";
 }
 
 const handleSubmit = async (e) => {
