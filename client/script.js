@@ -1,10 +1,10 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
 
-const jwttoken = document.cookie
-window.alert("TOken : "+jwttoken)
+var token = document.cookie
+window.alert("TOken : "+token)
 
-if(jwttoken == null || jwttoken == "") {
+if(token == null || token == "") {
     window.location.href="/auth/login.html";
 }
 
