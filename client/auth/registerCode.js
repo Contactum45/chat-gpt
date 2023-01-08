@@ -1,7 +1,7 @@
 const form = document.querySelector('form')
 var token = document.cookie
 if(token.length > 0) {
-    window.location.href="/chat.html";
+    window.location.href="/";
 }
 
 
@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
     if (response.ok) {
         const data = await response.json();
         document.cookie = "token = "+data.token
-        window.location.href="chat.html";
+        window.location.href="/";
     } else {
         const data = await response.json();
         window.alert("Error occurs "+data.message)
