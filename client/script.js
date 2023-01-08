@@ -1,8 +1,9 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
 
-window.alert(getCookie("token"))
-if(getCookie("token").length <= 0 || getCookie("token") == null) {
+const jwttoken = document.cookie
+
+if(jwttoken == null) {
     window.location.href="/auth/login.html";
 }
 
@@ -11,17 +12,6 @@ const chatContainer = document.querySelector('#chat_container')
 var isTyping = false;
 
 let loadInterval
-
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
 
 function loader(element) {
     element.textContent = ''
