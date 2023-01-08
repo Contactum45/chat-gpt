@@ -1,11 +1,11 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
 
-var token = document.cookie
-window.alert(token)
-if(token.length <= 0) {
-    window.location.href="/auth/login.html";
-}
+// var token = document.cookie
+// window.alert(token)
+// if(token.length <= 0) {
+//     window.location.href="/auth/login.html";
+// }
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')

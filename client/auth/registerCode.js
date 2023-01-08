@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
 
     if (response.ok) {
         const data = await response.json();
-        document.cookie = "token = "+data.token
+        // document.cookie = "token = "+data.token
         window.location.href="/";
     } else {
         const data = await response.json();
