@@ -3,7 +3,7 @@ import user from './assets/user.svg'
 
 var token = document.cookie
 if(token.length <= 0) {
-    window.location.href="login.html";
+    window.location.href="/login.html";
 }
 
 const form = document.querySelector('form')
